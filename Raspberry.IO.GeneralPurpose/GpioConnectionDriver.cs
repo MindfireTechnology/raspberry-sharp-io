@@ -291,14 +291,18 @@ namespace Raspberry.IO.GeneralPurpose
         {
             switch (processor)
             {
-                case Processor.Bcm2708:
+                case Processor.Bcm2835:
                     return Interop.BCM2835_GPIO_BASE;
 
                 case Processor.Bcm2709:
                     return Interop.BCM2836_GPIO_BASE;
+                
+                case Processor.Bcm2711:
+                    return Interop.BCM2711_GPIO_BASE;
 
                 default:
-                    throw new ArgumentOutOfRangeException("processor");
+                    throw new ArgumentOutOfRangeException("processor", $"Processor identified as: {(int)processor} : {processor.ToString()}");
+
             }
         }
 

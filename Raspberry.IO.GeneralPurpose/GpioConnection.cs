@@ -115,7 +115,7 @@ namespace Raspberry.IO.GeneralPurpose
         /// </summary>
         public bool this[PinConfiguration pin]
         {
-            get { return pinValues[pin.Pin]; }
+            get { return Driver.Read(pin.Pin); }
             set
             {
                 if (pin.Direction == PinDirection.Output)
